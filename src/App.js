@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import { makeStyles } from '@material-ui/core';
+import React, {Component} from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+ render() {
+
+    const classes = getStyles();
+    return (
+
+      <div className='wrapper'>
+        <header className={classes.appTitle}> React Movies App </header>
+
+        <div className='main'>
+
+
+        
+        </div> 
+
+      </div>
+      
+    )
+  }
 }
+
+
+const getStyles = makeStyles((theme) => ({
+
+  appTitle: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }
+
+}));
+
+
+
 
 export default App;
