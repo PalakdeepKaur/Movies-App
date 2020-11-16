@@ -18,10 +18,9 @@ import TvOnAir from "./Components/TV/tvOnAir";
 import TvPopular from "./Components/TV/tvPopular";
 import TvTopRated from "./Components/TV/tvTopRated";
 import SearchMovie from "./Components/Search/SearchMovie";
-import SearchMulti from "./containers/SearchMulti";
-import SearchTv from "./containers/SearchTv";
+import SearchMulti from "./Components/Search/SearchMulti";
 import SearchContainer from "./Components/Search/SearchContainer";
-
+import SearchTv from "./Components/Search/SearchTv";
 
 
 class App extends Component {
@@ -107,7 +106,6 @@ class App extends Component {
 
                   <div className="tabs">
                     <Switch>
-
                       <Route path="/movie/popular">
                         <MoviePopular />
                       </Route>

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { makeRequest } from "../service/api";
+import { makeRequest } from "../../Services/api";
 import { withRouter } from "react-router-dom";
 import SearchCard from "./SearchCard";
-import Search_Default from "./Search_Default";
+import SearchBasic from "./SearchBasic";
 
 class SearchMulti extends Component {
 
@@ -52,7 +52,7 @@ class SearchMulti extends Component {
           <div className="row">
             {searchdata.map(function (value, index) {
               return (
-                <Card3 className={"col-md-3"} key={index} searchdata={value} />
+                <SearchCard className={"col-md-3"} key={index} searchdata={value} />
               );
             })}
 
@@ -64,7 +64,7 @@ class SearchMulti extends Component {
 
           </div>
         ) : (
-            <Search_Default/>
+            <SearchBasic/>
         )}
       </div>
     );

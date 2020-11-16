@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { makeRequest } from "../../Services/api";
 import { withRouter } from "react-router-dom";
-
 import SearchCard from "./SearchCard";
 import SearchBasic from "./SearchBasic";
 
-class Search_Movie extends Component {
+class SearchTv extends Component {
 
 
   constructor(props) {
@@ -13,24 +12,21 @@ class Search_Movie extends Component {
     this.getQuery = this.getQuery.bind(this);
   }
 
-
   state = {
     listType: this.props.listType,
     searchdata: [],
     searchTerm: "",
     loading: true,
-    query:this.props.searchQuery
+    query:this.props.query
+
   };
 
   async componentDidMount() {
     let q = await this.getQuery();
     console.log( q );
     if( q ){
-      let getMovies = await makeRequest("search/movie", q );
-      console.log(getMovies);
-      this.setState({
-        searchdata: getMovies.results,
-      });
+      let getMovies = await makeRequest("search/tv", q );
+      this.setState({ searchdata: getMovies.results });
       if (typeof getMovies !== "undefined") {
         this.setState({ loading: false });
       }
@@ -48,11 +44,11 @@ class Search_Movie extends Component {
   }
 
   render() {
-    const { listType, searchdata, loading } = this.state;
-    let q = this.props.searchQuery === "" && this.props.searchQuery === null ;
+    const { listType, searchTerm, searchdata, loading } = this.state;
     return (
       <div>
-        {loading === false && typeof searchdata !== "undefined" && !q ? (
+        {/* <SearchHeader select={"tv"} /> */}
+        {loading === false && typeof searchdata !== "undefined" ? (
           <div className="row">
             {searchdata.map(function (value, index) {
               return (
@@ -61,8 +57,8 @@ class Search_Movie extends Component {
             })}
 
             { searchdata.length === 0 ?
-                <p>No match found</p>
-                : null
+                <p>No results found</p>
+              : null
             }
 
           </div>
@@ -73,4 +69,4 @@ class Search_Movie extends Component {
     );
   }
 }
-export default withRouter(Search_Movie);
+export default withRouter(SearchTv);

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { makeRequest } from "../../Services/api";
 import MovieCard from "./moviesCard";
-import MovieHeader from "./MovieHeader";
+import MovieContainer from "./movieContainer";
 import { withRouter } from "react-router-dom";
 
 class MovieUpcoming extends Component {
@@ -23,7 +23,7 @@ class MovieUpcoming extends Component {
     const { listType, moviedata, loading } = this.state;
     return (
       <div>
-        <MovieHeader select={"upcoming"} />
+        <MovieContainer select={"upcoming"} />
         {loading === false && typeof moviedata !== "undefined" ? (
           <div className="row">
             {moviedata.map(function (value, index) {

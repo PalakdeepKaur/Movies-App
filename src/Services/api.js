@@ -1,6 +1,6 @@
-import { API_KEY, API_URL } from "../config/api_config";
-
 export async function makeRequest(path, query = null ) {
+  let API_URL = "https://api.themoviedb.org/3/";
+  let API_KEY = "a37390fb133bab79c2baae2b65e0b256";
 
   if( query !== null ){
     API_URL += path+"?api_key="+API_KEY+"&query="+query;
